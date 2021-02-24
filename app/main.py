@@ -110,6 +110,11 @@ class ZooplusScraper():
 if __name__ == '__main__':
     # now = datetime.now()
 
+    # Change variables
+    driver_file = r'D:\chromedriver.exe'
+    webdriver_ = webdriver.Chrome
+    path_to_csv = 'example.csv'
+
     url = "https://www.zooplus.de/tierarzt/results"
     query_params = {
         'animal_99': 'true',
@@ -126,7 +131,7 @@ if __name__ == '__main__':
     }
 
     parser = ZooplusScraper(url, query_params=query_params, columns_class=columns_class, page_end=3)
-    parser.collect_data(driver_file=r'D:\chromedriver.exe', webdriver_=webdriver.Chrome)
-    parser.create_csv(path_to_csv='example.csv')
+    parser.collect_data(driver_file=driver_file, webdriver_=webdriver_)
+    parser.create_csv(path_to_csv=path_to_csv)
 
     # print('done with {} sec'.format(datetime.now() - now))
