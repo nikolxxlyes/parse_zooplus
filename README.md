@@ -1,6 +1,8 @@
 # parse_zooplus
 ## Describe
 
+    Python3.9 
+
     Parse https://www.zooplus.de/
 
 # Instruction:
@@ -24,10 +26,13 @@
          webdriver_ = webdriver.Chrome       
       
    - [OPTIONAL] Your start browser options respectively. 
-      
-      Hide Google Chrome with option "--headless" 
-      
-         driver_hide_option.add_argument("--headless")   
+     
+     Hide Google Chrome windows with option "--headless" 
+            
+         driver_option = webdriver.chrome.options.Options()
+         driver_option.add_argument("--headless")   
+
+          
 
 ### 4. Create and activate pythonvenv. 
    https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
