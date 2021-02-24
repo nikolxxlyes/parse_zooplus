@@ -15,6 +15,7 @@ Instruction:
 3. Set varible in main.py like
   
   driver_file = r'D:\chromedriver.exe'  # path to file webdriver "chromedriver.exe" p.2
+  
   webdriver_ = webdriver.Chrome         # choose respectively
   
 4. Create and activate pythonvenv. For example, in Windows
