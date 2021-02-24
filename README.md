@@ -1,29 +1,43 @@
 # parse_zooplus
-Parse https://www.zooplus.de/
+#Describe
 
-Instruction:
-1. Download the project:
-  
-  git clone https://github.com/nikolxxlyes/parse_zooplus.git
-  
-2. Download webdriver selenium. For example, follows the link below download "chromedriver_win32.zip" and unpack "chromedriver.exe"
-    
-  https://chromedriver.storage.googleapis.com/index.html?path=89.0.4389.23/
-  
-  Download "chromedriver_win32.zip", unpack "chromedriver.exe"
+    Parse https://www.zooplus.de/
 
-3. Set variables in main.py like
+#Instruction:
+1. ###Download the project:
   
-  driver_file = r'D:\chromedriver.exe'  # path to file webdriver "chromedriver.exe" p.2
+        git clone https://github.com/nikolxxlyes/parse_zooplus.git
   
-  webdriver_ = webdriver.Chrome         # choose respectively
+2. ###Download webdriver selenium. 
+   
+   We using Google Chrome in this example. Follows the link below, 
+   download "chromedriver_win32.zip" and unpack "chromedriver.exe"
+   
+        https://chromedriver.storage.googleapis.com/index.html?path=89.0.4389.23/
+
+3. ###Set variables in main.py like:
+    - [REQUIRED] Path to webdriver file from p.2
+     
+          driver_file = r'D:\chromedriver.exe'          
+
+    - [REQUIRED] Your browser respectively 
+          
+          webdriver_ = webdriver.Chrome       
+      
+    - [OPTIONAL] Your start browser options respectively. 
+      
+      Hide Google Chrome with option "--headless" 
+      
+          driver_hide_option.add_argument("--headless")   
+
+          
+
   
-4. Create and activate pythonvenv. For example, in Windows
+4. ###Create and activate pythonvenv. 
+   https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
   
-  python3 -m venv \path\to\new\virtual\environment
-  \path\to\new\virtual\environment\Scripts\activate.bat
+5. ###Install Python packages:
   
-5. Install Python packages:
-  
-  pip install -r requirements.txt
-  
+        pip install -r requirements.txt
+
+6. ###Run file app/main.py
