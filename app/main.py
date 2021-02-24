@@ -1,4 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 import pandas
@@ -19,11 +21,12 @@ class ZooplusScraper():
         self.columns_class = columns_class
         self.csv_data = {name: [] for name in self.columns_class.keys()}
 
-    def collect_data(self, driver_file, webdriver_=webdriver.Chrome):
-        driver = webdriver_(executable_path=driver_file)
+    def collect_data(self, driver_file, driver_option, webdriver_=webdriver.Chrome):
+
+        driver = webdriver_(executable_path=driver_file, options=driver_option)
         self.driver = driver
 
-        driver.maximize_window()
+        # driver.maximize_window()
 
         driver.get(self.format_url(page=1))
         driver.implicitly_wait(10)
@@ -36,6 +39,7 @@ class ZooplusScraper():
 
         for window in driver.window_handles:
             self.parse_window_data(window)
+            1
         driver.quit()
 
     def format_url(self, page: int) -> str:
@@ -108,12 +112,16 @@ class ZooplusScraper():
 
 
 if __name__ == '__main__':
-    # now = datetime.now()
+    now = datetime.now()
 
     # Change variables
     driver_file = r'D:\chromedriver.exe'
     webdriver_ = webdriver.Chrome
+    driver_option = Options()
+    driver_option.add_argument("--headless")
+
     path_to_csv = 'example.csv'
+
 
     url = "https://www.zooplus.de/tierarzt/results"
     query_params = {
@@ -130,8 +138,8 @@ if __name__ == '__main__':
         'recommendation': 'result-intro__rating__note',
     }
 
-    parser = ZooplusScraper(url, query_params=query_params, columns_class=columns_class, page_end=3)
-    parser.collect_data(driver_file=driver_file, webdriver_=webdriver_)
+    parser = ZooplusScraper(url, query_params=query_params, columns_class=columns_class, page_end=5)
+    parser.collect_data(driver_file=driver_file, driver_option=driver_option, webdriver_=webdriver_)
     parser.create_csv(path_to_csv=path_to_csv)
 
-    # print('done with {} sec'.format(datetime.now() - now))
+    print('done with {} sec'.format(datetime.now() - now))
