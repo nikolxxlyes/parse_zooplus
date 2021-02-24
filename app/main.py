@@ -54,7 +54,7 @@ class ZooplusScraper():
 
         for window in driver.window_handles:
             self.parse_window_data(window)
-            1
+
         driver.quit()
 
     def format_url(self, page: int) -> str:
@@ -181,8 +181,9 @@ if __name__ == '__main__':
         'recommendation': 'result-intro__rating__note',
     }
 
-    parser = ZooplusScraper(url, query_params=query_params, columns_class=columns_class, page_end=5)
+    parser = ZooplusScraper(url, query_params=query_params, columns_class=columns_class, page_end=3)
     parser.collect_data(driver_file=driver_file, driver_option=driver_option, webdriver_=webdriver_)
     parser.create_csv(path_to_csv=path_to_csv)
 
+    # print('Data has {} len'.format(len(parser.csv_data['job'])))
     # print('done with {} sec'.format(datetime.now() - start_time))
