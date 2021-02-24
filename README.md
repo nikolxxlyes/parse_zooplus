@@ -12,7 +12,7 @@ Instruction:
   
   Download "chromedriver_win32.zip", unpack "chromedriver.exe"
 
-3. Set varible in main.py like
+3. Set variables in main.py like
   
   driver_file = r'D:\chromedriver.exe'  # path to file webdriver "chromedriver.exe" p.2
   
